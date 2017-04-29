@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="egg_timer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,76 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyG-vR-wfF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Egg Timer" id="eYQ-8Q-90N">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="pause" id="RZC-jy-zhO">
+                                            <connections>
+                                                <action selector="pausePressed:" destination="BYZ-38-t0r" id="m5y-kE-CvW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="pma-KE-Xfk">
+                                            <connections>
+                                                <action selector="playPressed:" destination="BYZ-38-t0r" id="mkw-4r-BNI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQF-oQ-Zii">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="-10" id="cP4-vA-w7x">
+                                        <connections>
+                                            <action selector="minusTenPressed:" destination="BYZ-38-t0r" id="wOG-bb-1gV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gU9-4z-8R4"/>
+                                    <barButtonItem title="Reset" id="VvU-2H-VUG">
+                                        <connections>
+                                            <action selector="resetPressed:" destination="BYZ-38-t0r" id="qwz-Ji-Ftd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FIa-dv-6Z7"/>
+                                    <barButtonItem title="+10" id="YJD-wd-MtX">
+                                        <connections>
+                                            <action selector="plusTenPressed:" destination="BYZ-38-t0r" id="Pod-O9-iR5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-GB-XFm">
+                                <rect key="frame" x="157" y="165" width="61" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xnk-5g-ZaJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Qk-GB-XFm" firstAttribute="centerX" secondItem="LyG-vR-wfF" secondAttribute="centerX" id="2nf-eh-OjW"/>
+                            <constraint firstItem="2Qk-GB-XFm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4fE-WW-Seh"/>
+                            <constraint firstItem="2Qk-GB-XFm" firstAttribute="centerX" secondItem="JQF-oQ-Zii" secondAttribute="centerX" id="EAG-hW-3Yh"/>
+                            <constraint firstItem="LyG-vR-wfF" firstAttribute="leading" secondItem="JQF-oQ-Zii" secondAttribute="leading" id="WL0-yv-x3j"/>
+                            <constraint firstItem="2Qk-GB-XFm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="165" id="apC-jq-ij1"/>
+                            <constraint firstItem="2Qk-GB-XFm" firstAttribute="top" secondItem="LyG-vR-wfF" secondAttribute="bottom" constant="101" id="ggx-eX-5A4"/>
+                            <constraint firstItem="LyG-vR-wfF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p6L-at-8bZ"/>
+                            <constraint firstItem="JQF-oQ-Zii" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="pjK-32-XtQ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="gYt-I3-ID8"/>
+                    <connections>
+                        <outlet property="timerViewLabel" destination="2Qk-GB-XFm" id="sqB-bF-RH1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
